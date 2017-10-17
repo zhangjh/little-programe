@@ -1,0 +1,31 @@
+{
+  "pages": [
+    "pages/sign/sign",        
+    "pages/plan/plan",
+    "pages/stat/stat"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "今天你减肥了吗",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/sign/sign",
+        "iconPath": "/resources/打卡.png",
+        "text": "打卡"
+      },{
+        "pagePath": "pages/plan/plan",
+        "iconPath": "/resources/目标.png",
+        "text": "目标"
+      },{
+        "pagePath": "pages/stat/stat",
+        "iconPath": "/resources/统计.png",
+        "text": "统计"
+      }
+    ]
+  }
+}
