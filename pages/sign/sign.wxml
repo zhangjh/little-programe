@@ -1,0 +1,24 @@
+<!--pages/sign/sign.wxml-->
+<view class='container'>
+  <view>
+    <text class='center title'>今天你减肥了吗？</text>
+    <image src="{{iconSrc}}" 
+      bindtap='sign'
+      class='sign-image' mode='aspectFit'/>
+
+    <text class='center tips'>
+    水滴石穿，绳锯木断
+    持之以恒才有成效哦
+    </text>
+  </view>
+
+  <view class='container' style='width: 100%;'>
+    <view style='width: 80%;'>
+      <text class='center title small border'>历史打卡数据</text>
+      <text class='small center'>敬请期待...</text>
+    </view>
+    
+    <view>
+    </view>
+  </view>
+</view>

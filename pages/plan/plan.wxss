@@ -1,0 +1,22 @@
+/* pages/plan/plan.wxss */
+@import '../common/common.wxss';
+
+input {
+  color: blue;
+}
+
+.saveBtn {
+  margin-top: 20%;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.saveBtn, .btn {
+  width: 90%;
+}

@@ -1,0 +1,26 @@
+/* pages/sign/sign.wxss */
+@import '../common/common.wxss';
+
+.sign-image {
+  display: block;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+}
+
+
+.tips {
+  font-size: 0.8em;
+  color: brown;
+}
+
+.border {
+  border-bottom: 1px solid black;
+  width: 100%;
+  display: block;
+  padding-bottom: 10px;
+}
+
+.small {
+  font-size: small;
+}

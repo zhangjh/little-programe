@@ -1,0 +1,25 @@
+.container {
+  /* border: 1px solid whitesmoke; */
+  /* margin: 40px; */
+  /* box-shadow: 0px 1px 3px rgba(34, 25, 25, 0.2); */
+  padding: 100rpx 0;
+}
+
+
+.title {
+  margin: 10% 0 10% 0;
+  font-size: 1.2em;
+}
+
+.center {
+  display: block;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.inline {
+  display: inline-block;
+  margin: 15px;
+  margin-left: 20px;
+  width: 90%;
+}
