@@ -62,7 +62,65 @@ var decrypt = function(){
   });
 };
 
+var inputCheck = function (e, cbFail,cbSucc) {
+  // 不允许输入非数字
+  if (!/^[\d\.]+$/.test(e.detail.value)) {
+    wx.showToast({
+      title: '请输入数字',
+      duration: 1000,
+      mask: true,
+      image: '/resources/fail.png',
+      success: cbFail()
+    });
+    return;
+  }else {
+    cbSucc();
+  }
+};
+
+// 是否闰年
+var isLeapYear = (year) => {
+  return ((year % 400 !== 0) && (year % 4 === 0)) || (year % 400 === 0);
+};
+
+var daysOfMonth = (month, year) => {
+  switch (month) {
+    case 1, 3, 5, 7, 8, 10, 12:
+      return 31;
+      break;
+    case 2:
+      return isLeapYear(year) ? 29 : 28;
+    default:
+      return 30;
+      break;
+  }
+};
+
+var statUsers = function(){
+  // 记录用户信息
+  wx.request({
+    url: "https://favlink.cn/wx/statUsers",
+    data: {
+      openId: wx.getStorageSync("openId"),
+      nickName: wx.getStorageSync("nickName"),
+      city: wx.getStorageSync("city"),
+      gender: wx.getStorageSync("gender"),
+      province: wx.getStorageSync("province"),
+      avatarUrl: wx.getStorageSync("avatarUrl")
+    },
+    success: ret => {
+      if (ret.statusCode == 200) {
+
+      }
+    }
+  });
+};
+
 module.exports = {
   login,
-  decrypt
+  decrypt,
+  inputCheck,
+  isLeapYear,
+  daysOfMonth,
+  statUsers
 };

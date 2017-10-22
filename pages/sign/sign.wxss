@@ -24,3 +24,22 @@
 .small {
   font-size: small;
 }
+
+#canvas {
+  margin: 0 auto;
+  width: 90%;
+  height: 152px;
+  text-align: justify;
+
+}
+
+canvas {
+  border: 1px #e1e4e8 solid;
+  width: 100%;
+}
+
+.iconWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

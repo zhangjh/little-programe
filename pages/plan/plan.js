@@ -14,44 +14,30 @@ Page({
     objectWeight: ""
   },
 
-  inputCheck: function(e,cb){
-    // 不允许输入非数字
-    if (!/^[\d\.]+$/.test(e.detail.value)) {
-      wx.showToast({
-        title: '请输入数字',
-        duration: 1000,
-        mask: true,
-        success: cb
-      });
-      return;
-    }
-  },
-
   setCurWeight: function(e){
       var _this = this;
-      this.inputCheck(e,function(){
+      common.inputCheck(e,() => {
         _this.setData({
           curWeight: ""
         });
+      },() => {
+        _this.setData({
+          curWeight: parseFloat(e.detail.value).toFixed(1)
+        });
       });
-
-      this.setData({
-        curWeight: parseFloat(e.detail.value).toFixed(1)
-      });
-
   },
   
   setObjectWeight: function(e){
     var _this = this;
-    this.inputCheck(e,function(){
+    common.inputCheck(e,() => {
       _this.setData({
         objectWeight: ""
       });
+    },() => {
+      this.setData({
+        objectWeight: parseFloat(e.detail.value).toFixed(1)
+      });
     });
-    this.setData({
-      objectWeight: parseFloat(e.detail.value).toFixed(1)
-    });
-
   },
 
   dateChange: function(e){
@@ -87,50 +73,33 @@ Page({
 
   saveObject: function(e){
     var _this = this;
-    if(this.data.curWeight == ""){
-      wx.showModal({
-        title: '请输入当前体重',
-        showCancel: false
-      });
-      return;
-    }
-    if(this.data.objectWeight == ""){
-      wx.showModal({
-        title: '请输入目标体重',
-        showCancel: false
-      });
-      return;
-    }
-    if (this.data.date == "2017-09-14"){
-      wx.showModal({
-        title: '请输入目标日期',
-        showCancel: false
-      });
-      return;
-    }
-
-    wx.request({
-      url: "https://favlink.cn/wx/saveObject",
-      data: {
-        openId: wx.getStorageSync("openId"),
-        nickName: wx.getStorageSync("nickName"),
-        gender: wx.getStorageSync("gender"),
-        city: wx.getStorageSync("city"),
-        curWeight: _this.data.curWeight,
-        objectWeight: _this.data.objectWeight,
-        endDate: _this.data.date
-      },
-      success: function(res){
-        if(res.statusCode === 200){
-          console.log(res);
-          wx.showModal({
-            title: '目标设定成功',
-            content: '请坚持目标每天来打卡哦',
-            showCancel: false
-          });
+    if(this.data.curWeight != "" && 
+      this.data.objectWeight != "" &&
+      this.data.date != "2017-09-14"
+    ){
+      wx.request({
+        url: "https://favlink.cn/wx/saveObject",
+        data: {
+          openId: wx.getStorageSync("openId"),
+          nickName: wx.getStorageSync("nickName"),
+          gender: wx.getStorageSync("gender"),
+          city: wx.getStorageSync("city"),
+          curWeight: _this.data.curWeight,
+          objectWeight: _this.data.objectWeight,
+          endDate: _this.data.date
+        },
+        success: function (res) {
+          if (res.statusCode === 200) {
+            console.log(res);
+            wx.showModal({
+              title: '目标设定成功',
+              content: '请坚持目标每天来打卡哦',
+              showCancel: false
+            });
+          }
         }
-      }
-    })
+      });
+    }
   },
 
   /**

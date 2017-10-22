@@ -12,13 +12,43 @@
     </text>
   </view>
 
-  <view class='container' style='width: 100%;'>
-    <view style='width: 80%;'>
+  <!-- <view class='container' style='width: 100%;'>
+    <view style='width: 90%;'>
       <text class='center title small border'>历史打卡数据</text>
-      <text class='small center'>敬请期待...</text>
+      <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="bindChange">
+        <picker-view-column>
+          <view wx:key="year" wx:for="{{years}}" style="line-height: 50px">{{item}}年</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view wx:key="month" wx:for="{{months}}" style="line-height: 50px">{{item}}月</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view wx:key="day" wx:for="{{days}}" style="line-height: 50px">{{item}}日</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view class='iconWrap'>
+            <icon class='iconTips' type='{{iconType}}' size="25" />
+          </view>
+
+        </picker-view-column>  
+      </picker-view>
     </view>
-    
-    <view>
+  </view> -->
+
+  <view class='container'>
+    <text class='title'>今日体重数据</text>
+    <input placeholder='输入当前体重公斤数' 
+        class='center'
+        value='{{todayWeight}}'
+        bindinput='setTodayWeight'
+    />   
+    <view class='saveBtn'>
+      <button type='primary'
+              plain='true'
+              size='default'
+              bindtap='saveTodayWeight'
+              class='btn'
+      >保存</button>
     </view>
   </view>
 </view>

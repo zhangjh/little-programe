@@ -8,7 +8,7 @@
 	},
 	"compileType": "weapp",
 	"libVersion": "1.5.4",
-	"appid": "替换成自己的",
+	"appid": "wxfe6ed885a3c63032",
 	"projectname": "%E4%BB%8A%E5%A4%A9%E4%BD%A0%E5%87%8F%E8%82%A5%E4%BA%86%E5%90%97",
 	"condition": {
 		"weapp": {

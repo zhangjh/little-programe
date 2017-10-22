@@ -5,18 +5,10 @@ input {
   color: blue;
 }
 
-.saveBtn {
-  margin-top: 20%;
-}
-
 .left {
   float: left;
 }
 
 .right {
   float: right;
-}
-
-.saveBtn, .btn {
-  width: 90%;
 }

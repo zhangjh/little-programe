@@ -5,6 +5,13 @@
   padding: 100rpx 0;
 }
 
+.saveBtn {
+  margin-top: 20%;
+}
+
+.saveBtn, .btn {
+  width: 90%;
+}
 
 .title {
   margin: 10% 0 10% 0;
@@ -17,9 +24,22 @@
   font-size: 1.2em;
 }
 
+.small {
+  font-size: 0.8em;
+}
+
 .inline {
   display: inline-block;
   margin: 15px;
   margin-left: 20px;
   width: 90%;
 }
+
+picker-view-column {
+  text-align: center;
+}
+
+/* picker-view-column view {
+  height: 50px;
+  line-height: 50px;
+} */

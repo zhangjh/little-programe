@@ -1,4 +1,31 @@
 <!--pages/stat/stat.wxml-->
-<view class='center title'>
-  敬请期待...
+ <!-- <view class='center title'>
+  <view class='signStat'>
+    <text class='title small'>打卡统计</text>
+    <canvas canvas-id='signStat'></canvas>    
+  </view>
+</view>  -->
+
+<view> 
+  <text class='center title'>打卡统计</text>
+  <canvas canvas-id='signStat' class='canvas{{showList ? "_hide" : ""}}'></canvas>
+  <view class='list{{showList ? "" : "_hide"}}'>
+  
+  </view>    
+ </view>  
+
+<view>
+  <text class='center title'>体重趋势图</text>
+  <canvas canvas-id='weightStat' class='canvas{{showList ? "_hide" : ""}}'></canvas>
+  <view class='list{{showList ? "" : "_hide"}}'>
+    <view>
+      <view>日期</view>
+      <view>体重</view>
+    </view>
+  </view>
+</view>
+
+<view>
+  <button bindtap='drawLastMonth'>上个月</button>
+  <!-- <button bindtap='showList'>列表显示</button> -->
 </view>

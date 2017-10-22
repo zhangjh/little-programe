@@ -1,2 +1,12 @@
 /* pages/stat/stat.wxss */
 @import '/pages/common/common.wxss';
+
+canvas {
+  width: 100%;
+  height: 400px;
+  /* transform: scale(0.8);   */
+} 
+
+.list_hide, .canvas_hide {
+  display: none;
+}
