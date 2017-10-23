@@ -5,7 +5,7 @@
     "pages/stat/stat"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "今天你减肥了吗",
     "navigationBarTextStyle": "black",

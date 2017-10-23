@@ -16,7 +16,11 @@
 
 <view>
   <text class='center title'>体重趋势图</text>
-  <canvas canvas-id='weightStat' class='canvas{{showList ? "_hide" : ""}}'></canvas>
+  <canvas canvas-id='weightStat' class='canvas{{showList ? "_hide" : ""}}' 
+          bindtouchstart='touchHandler'
+          bindtouchmove='moveHandler'
+          bindtouchend='touchEndHandler'
+  />
   <view class='list{{showList ? "" : "_hide"}}'>
     <view>
       <view>日期</view>

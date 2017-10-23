@@ -5,6 +5,9 @@ var common = require("../common/common.js");
 var date = new Date();
 var year = date.getFullYear();
 var month = date.getMonth() + 1;
+var weightChart;
+var openId = wx.getStorageSync("openId");
+var nickName = wx.getStorageSync("nickName");
 
 Page({
 
@@ -70,9 +73,10 @@ Page({
     }
     
     //柱状图
-    new Charts({
+    weightChart = new Charts({
       canvasId: 'weightStat',
       type: 'column',
+      enableScroll: true,
       categories: this.data.days,
       series: [{
         name: '体重',
@@ -90,6 +94,23 @@ Page({
       },
       width: res.screenWidth,
       height: 400
+    });
+  },
+
+  touchHandler: e => {
+    weightChart.scrollStart(e);
+  },
+
+  moveHandler: function (e) {
+    weightChart.scroll(e);
+  },
+
+  touchEndHandler: function (e) {
+    weightChart.scrollEnd(e);
+    weightChart.showToolTip(e, {
+      format: function (item, category) {
+        return category + ' ' + item.name + ':' + item.data
+      }
     });
   },
 
@@ -134,7 +155,8 @@ Page({
     wx.request({
       url: 'https://favlink.cn/wx/getSignedBatch',
       data: {
-        openId: wx.getStorageSync("openId"),
+        // openId: wx.getStorageSync("openId"),
+        openId: param.openId,
         findPattern: findPattern
       },
       success: ret => {
@@ -166,7 +188,8 @@ Page({
     wx.request({
       url: 'https://favlink.cn/wx/getWeightBatch',
       data: {
-        openId: wx.getStorageSync("openId"),
+        // openId: wx.getStorageSync("openId"),
+        openId: param.openId,
         findPattern: findPattern
       },
       success: ret => {
@@ -211,10 +234,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options);
+    let openId = options.openId || wx.getStorageSync("openId");
+    let param = this.curMonth();
+    param.openId = openId;
     // 获取本月体重趋势数据并绘图
-    this.getWeightData(this.curMonth());
+    this.getWeightData(param);
     // 获取本月签到数据并绘图
-    this.getSignedData(this.curMonth());
+    this.getSignedData(param);
   },
 
   /**
@@ -258,9 +285,12 @@ Page({
       curMonth: month 
     },() => {
       // 获取本月体重趋势数据并绘图
-      this.getWeightData(this.curMonth());
+      let param = this.curMonth();
+      let openId = wx.getStorageSync("openId");
+      param.openId = openId;
+      this.getWeightData(param);
       // 获取本月签到数据并绘图
-      this.getSignedData(this.curMonth());
+      this.getSignedData(param);
     });
   },
 
@@ -274,7 +304,14 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
+  onShareAppMessage: function (res) {
+    console.log(openId);
+    return {
+      title: nickName + '的统计',
+      path: '/pages/stat/stat?openId=' + openId,
+      success: res => {
+        console.log(res);
+      }
+    };
   }
 })
