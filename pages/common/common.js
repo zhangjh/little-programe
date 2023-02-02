@@ -2,7 +2,7 @@ var login2saveInfo = function(cb){
   wx.login({
     success: res => {
       wx.request({
-        url: "https://favlink.cn/wx/getOpenId",
+        url: "https://zhangjh.me/wx/getOpenId",
         data: {
           js_code: res.code
         },
@@ -50,7 +50,7 @@ var login = function(cb) {
 
 var decrypt = function(){
   wx.request({
-    url: "https://favlink.cn/wx/decrypt",
+    url: "https://zhangjh.me/wx/decrypt",
     data: {
       sessionKey: wx.getStorageSync("sessionKey"),
       iv: wx.getStorageSync("iv"),
@@ -99,7 +99,7 @@ var daysOfMonth = (month, year) => {
 var statUsers = function(){
   // 记录用户信息
   wx.request({
-    url: "https://favlink.cn/wx/statUsers",
+    url: "https://zhangjh.me/wx/statUsers",
     data: {
       openId: wx.getStorageSync("openId"),
       nickName: wx.getStorageSync("nickName"),

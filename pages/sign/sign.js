@@ -69,7 +69,7 @@ Page({
         
         // 数据持久化
         wx.request({
-          url: "https://favlink.cn/wx/sign",
+          url: "https://zhangjh.me/wx/sign",
           data: {
             openId: wx.getStorageSync("openId"),
             date: this.getCurDate(),
@@ -89,7 +89,7 @@ Page({
   getSigned: function(cb){
     var time = new Date();
     wx.request({
-      url: "https://favlink.cn/wx/isSigned",
+      url: "https://zhangjh.me/wx/isSigned",
       data: {
         openId: wx.getStorageSync("openId"),
         date: this.getCurDate()
@@ -128,7 +128,7 @@ Page({
   //     day: this.data.days[val[2]]
   //   });
   //   wx.request({
-  //     url: 'https://favlink.cn/wx/isSigned',
+  //     url: 'https://zhangjh.me/wx/isSigned',
   //     data: {
   //       openId: wx.getStorageSync("openId"),
   //       date: date
@@ -172,7 +172,7 @@ Page({
   saveTodayWeight: function(e){
     if(this.data.weight){
       wx.request({
-        url: 'https://favlink.cn/wx/saveTodayWeight',
+        url: 'https://zhangjh.me/wx/saveTodayWeight',
         data: {
           openId: wx.getStorageSync("openId"),
           date: this.getCurDate(),

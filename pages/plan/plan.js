@@ -49,7 +49,7 @@ Page({
   getObject: function(cb){
     var _this = this;
     wx.request({
-      url: "https://favlink.cn/wx/getObject",
+      url: "https://zhangjh.me/wx/getObject",
       data: {
         openId: wx.getStorageSync("openId")
       },
@@ -78,7 +78,7 @@ Page({
       this.data.date != "2017-09-14"
     ){
       wx.request({
-        url: "https://favlink.cn/wx/saveObject",
+        url: "https://zhangjh.me/wx/saveObject",
         data: {
           openId: wx.getStorageSync("openId"),
           nickName: wx.getStorageSync("nickName"),

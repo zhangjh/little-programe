@@ -25,8 +25,8 @@
     <picker mode='date'
         class='center' 
         value='{{date}}' 
-        start="2015-09-14"
-        end="2022-09-14"
+        start="2023-01-01"
+        end="2100-09-14"
         bindchange='dateChange'
     >
       <view>

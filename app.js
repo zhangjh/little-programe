@@ -18,7 +18,7 @@ App({
     //       success: res => {
     //         // 发送 res.code 到后台换取 openId, sessionKey, unionId
     //         wx.request({
-    //           url: "https://favlink.cn/wx/getOpenId",
+    //           url: "https://zhangjh.me/wx/getOpenId",
     //           data: {
     //             js_code: res.code
     //           },
@@ -39,7 +39,7 @@ App({
     // wx.login({
     //   success: res => {
     //     wx.request({
-    //       url: "https://favlink.cn/wx/getOpenId",
+    //       url: "https://zhangjh.me/wx/getOpenId",
     //       data: {
     //         js_code: res.code
     //       },

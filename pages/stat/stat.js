@@ -153,7 +153,7 @@ Page({
     var days = param.days;
     var sysInfo = param.sysInfo;
     wx.request({
-      url: 'https://favlink.cn/wx/getSignedBatch',
+      url: 'https://zhangjh.me/wx/getSignedBatch',
       data: {
         // openId: wx.getStorageSync("openId"),
         openId: param.openId,
@@ -186,7 +186,7 @@ Page({
       daysArr.push(month + '-' + i);
     }
     wx.request({
-      url: 'https://favlink.cn/wx/getWeightBatch',
+      url: 'https://zhangjh.me/wx/getWeightBatch',
       data: {
         // openId: wx.getStorageSync("openId"),
         openId: param.openId,
