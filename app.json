@@ -27,5 +27,6 @@
         "text": "统计"
       }
     ]
-  }
+  },
+  "lazyCodeLoading": "requiredComponents"
 }
